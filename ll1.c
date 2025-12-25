@@ -129,46 +129,13 @@ void findFollow(char c) {
 
 int table[26][128];  
 
-// void buildLL1Table() {
-    
-//     for (int i = 0; i < 26; i++)
-//         for (int j = 0; j < 128; j++)
-//             table[i][j] = -1;
-
-    
-//     for (int p = 0; p < n; p++) {
-//         char A = productions[p][0];
-//         char *rhs = productions[p] + 3;
-
-//         char firstRHS[MAX] = "";
-//         findFirstForString(firstRHS, rhs);
-
-        
-//         for (int k = 0; firstRHS[k]; k++) {
-//             char t = firstRHS[k];
-//             if (t != '#')
-//                 table[A-'A'][t] = p;
-//         }
-
-        
-//         if (strchr(firstRHS, '#')) {
-//             char *f = followSet[A-'A'];
-//             for (int k = 0; f[k]; k++) {
-//                 char t = f[k];
-//                 table[A-'A'][t] = p;
-//             }
-//         }
-//     }
-// }
-
 void buildLL1Table() {
 
-    // initialize table
     for (int i = 0; i < 26; i++)
         for (int j = 0; j < 128; j++)
             table[i][j] = -1;
 
-    // build table
+   
     for (int p = 0; p < n; p++) {
         char A = productions[p][0];
         char *rhs = productions[p] + 3;
@@ -176,7 +143,7 @@ void buildLL1Table() {
         char firstRHS[MAX] = "";
         findFirstForString(firstRHS, rhs);
 
-        // FIRST(alpha)
+        
         for (int k = 0; firstRHS[k]; k++) {
             char t = firstRHS[k];
             if (t == '#') continue;
@@ -196,7 +163,7 @@ void buildLL1Table() {
             table[A-'A'][t] = p;
         }
 
-        // epsilon case
+        
         if (strchr(firstRHS, '#')) {
             char *f = followSet[A-'A'];
             for (int k = 0; f[k]; k++) {
