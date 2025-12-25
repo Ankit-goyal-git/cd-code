@@ -184,7 +184,7 @@ void buildLL1Table() {
             if (table[A-'A'][t] != -1 &&
                 table[A-'A'][t] != p) {
 
-                printf("\n❌ LL(1) CONFLICT detected!\n");
+                printf("\n LL(1) CONFLICT detected!\n");
                 printf("Table[%c, %c] has clash between:\n",
                        A, t);
                 printf("  %s\n",
@@ -205,7 +205,7 @@ void buildLL1Table() {
                 if (table[A-'A'][t] != -1 &&
                     table[A-'A'][t] != p) {
 
-                    printf("\n❌ LL(1) CONFLICT detected!\n");
+                    printf("\n LL(1) CONFLICT detected!\n");
                     printf("Table[%c, %c] has clash between:\n",
                            A, t);
                     printf("  %s\n",
@@ -219,7 +219,7 @@ void buildLL1Table() {
         }
     }
 
-    printf("\n✅ LL(1) Parsing Table constructed successfully (No conflicts).\n");
+    printf("\nLL(1) Parsing Table constructed successfully (No conflicts).\n");
 }
 
 
